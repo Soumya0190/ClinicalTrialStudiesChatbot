@@ -1,0 +1,16 @@
+apiVersion: v1                    # API version for a Service resource
+kind: Service                     # We're creating a Service to expose the app
+
+metadata:
+  name: chatbot-service           # Name of the Service (used to access it internally or externally)
+
+spec:
+  type: LoadBalancer              # Exposes the service externally with a public IP (ideal for web apps)
+  
+  selector:
+    app: chatbot-app              # This matches the Pods with the same label; connects service to Pods
+
+  ports:
+    - protocol: TCP               # Use TCP protocol (standard for web services)
+      port: 80                    # External port exposed to the outside world (user-friendly)
+      targetPort: 8501            # Port your container is actually running the app on

@@ -1,0 +1,238 @@
+{
+  "aadProfile": null,
+  "addonProfiles": {
+    "omsagent": {
+      "config": {
+        "logAnalyticsWorkspaceResourceID": "/subscriptions/86856244-d21f-40f5-9ab4-18a26e582e36/resourceGroups/DefaultResourceGroup-EUS/providers/Microsoft.OperationalInsights/workspaces/DefaultWorkspace-86856244-d21f-40f5-9ab4-18a26e582e36-EUS",
+        "useAADAuth": "true"
+      },
+      "enabled": true,
+      "identity": null
+    }
+  },
+  "agentPoolProfiles": [
+    {
+      "availabilityZones": null,
+      "capacityReservationGroupId": null,
+      "count": 1,
+      "creationData": null,
+      "currentOrchestratorVersion": "1.32.5",
+      "eTag": null,
+      "enableAutoScaling": false,
+      "enableEncryptionAtHost": false,
+      "enableFips": false,
+      "enableNodePublicIp": false,
+      "enableUltraSsd": false,
+      "gatewayProfile": null,
+      "gpuInstanceProfile": null,
+      "gpuProfile": null,
+      "hostGroupId": null,
+      "kubeletConfig": null,
+      "kubeletDiskType": "OS",
+      "linuxOsConfig": null,
+      "maxCount": null,
+      "maxPods": 250,
+      "messageOfTheDay": null,
+      "minCount": null,
+      "mode": "System",
+      "name": "nodepool1",
+      "networkProfile": null,
+      "nodeImageVersion": "AKSUbuntu-2204gen2containerd-202506.16.0",
+      "nodeLabels": null,
+      "nodePublicIpPrefixId": null,
+      "nodeTaints": null,
+      "orchestratorVersion": "1.32",
+      "osDiskSizeGb": 128,
+      "osDiskType": "Managed",
+      "osSku": "Ubuntu",
+      "osType": "Linux",
+      "podIpAllocationMode": null,
+      "podSubnetId": null,
+      "powerState": {
+        "code": "Running"
+      },
+      "provisioningState": "Succeeded",
+      "proximityPlacementGroupId": null,
+      "scaleDownMode": "Delete",
+      "scaleSetEvictionPolicy": null,
+      "scaleSetPriority": null,
+      "securityProfile": {
+        "enableSecureBoot": false,
+        "enableVtpm": false
+      },
+      "spotMaxPrice": null,
+      "status": null,
+      "tags": null,
+      "type": "VirtualMachineScaleSets",
+      "upgradeSettings": {
+        "drainTimeoutInMinutes": null,
+        "maxSurge": "10%",
+        "maxUnavailable": "0",
+        "nodeSoakDurationInMinutes": null,
+        "undrainableNodeBehavior": null
+      },
+      "virtualMachineNodesStatus": null,
+      "virtualMachinesProfile": null,
+      "vmSize": "Standard_D2s_v3",
+      "vnetSubnetId": null,
+      "windowsProfile": null,
+      "workloadRuntime": null
+    }
+  ],
+  "apiServerAccessProfile": null,
+  "autoScalerProfile": null,
+  "autoUpgradeProfile": {
+    "nodeOsUpgradeChannel": "NodeImage",
+    "upgradeChannel": null
+  },
+  "azureMonitorProfile": {
+    "metrics": null
+  },
+  "azurePortalFqdn": "chatbot-az-chatbot-resource-868562-vm5ns6wf.portal.hcp.eastus.azmk8s.io",
+  "bootstrapProfile": {
+    "artifactSource": "Direct",
+    "containerRegistryId": null
+  },
+  "currentKubernetesVersion": "1.32.5",
+  "disableLocalAccounts": false,
+  "diskEncryptionSetId": null,
+  "dnsPrefix": "chatbot-az-chatbot-resource-868562",
+  "eTag": null,
+  "enableRbac": true,
+  "extendedLocation": null,
+  "fqdn": "chatbot-az-chatbot-resource-868562-vm5ns6wf.hcp.eastus.azmk8s.io",
+  "fqdnSubdomain": null,
+  "httpProxyConfig": null,
+  "id": "/subscriptions/86856244-d21f-40f5-9ab4-18a26e582e36/resourcegroups/chatbot-resource-group/providers/Microsoft.ContainerService/managedClusters/chatbot-azure-kubernetes",
+  "identity": {
+    "delegatedResources": null,
+    "principalId": "e02a5fee-91d7-4f3c-92da-224e72adbcca",
+    "tenantId": "5030ec48-8077-404f-8ca6-7db91fcfac2d",
+    "type": "SystemAssigned",
+    "userAssignedIdentities": null
+  },
+  "identityProfile": {
+    "kubeletidentity": {
+      "clientId": "b5357deb-37c3-49be-a385-47dc323a1c4c",
+      "objectId": "c6df80d2-4f61-4d49-a283-c78084d4f8c6",
+      "resourceId": "/subscriptions/86856244-d21f-40f5-9ab4-18a26e582e36/resourcegroups/MC_chatbot-resource-group_chatbot-azure-kubernetes_eastus/providers/Microsoft.ManagedIdentity/userAssignedIdentities/chatbot-azure-kubernetes-agentpool"
+    }
+  },
+  "ingressProfile": null,
+  "kubernetesVersion": "1.32",
+  "linuxProfile": {
+    "adminUsername": "azureuser",
+    "ssh": {
+      "publicKeys": [
+        {
+          "keyData": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDgynHsdMoQiiG6koe+oua2VIY3Ul3FLb96+qjth8Mh2XguU2BCZPOE+4FZ8x9+QnonFpqWCydS+839EJCoVZ0vRnJ8owOOrkIFRTraaNnAPMrv08xi1yz8XJ/jLuYY2ptEHNH469Lqq8r0m+ifAF/IFqmq0tIVf6qjZJMEAw+hSvX+gTROZQAucrnSV64KHqzoFg9IUaU19TnVXtzd/HLqf7l/0DZm77S+GALOWD1ZrKn21sX1wjxPb8AJ9KLwl7X6MnFXZeTEckJ9Sw/S3Y4lICTjyBwrV8bxduh37SBT5yp8BCJLO1APf5K37WQyXp/fpBG8L85qH6zz3hZ/7iNx"  
+        }
+      ]
+    }
+  },
+  "location": "eastus",
+  "maxAgentPools": 100,
+  "metricsProfile": {
+    "costAnalysis": {
+      "enabled": false
+    }
+  },
+  "name": "chatbot-azure-kubernetes",
+  "networkProfile": {
+    "advancedNetworking": null,
+    "dnsServiceIp": "10.0.0.10",
+    "ipFamilies": [
+      "IPv4"
+    ],
+    "loadBalancerProfile": {
+      "allocatedOutboundPorts": null,
+      "backendPoolType": "nodeIPConfiguration",
+      "effectiveOutboundIPs": [
+        {
+          "id": "/subscriptions/86856244-d21f-40f5-9ab4-18a26e582e36/resourceGroups/MC_chatbot-resource-group_chatbot-azure-kubernetes_eastus/providers/Microsoft.Network/publicIPAddresses/2d8a5fd8-78cd-462c-98a8-6a1a5559b146",
+          "resourceGroup": "MC_chatbot-resource-group_chatbot-azure-kubernetes_eastus"
+        }
+      ],
+      "enableMultipleStandardLoadBalancers": null,
+      "idleTimeoutInMinutes": null,
+      "managedOutboundIPs": {
+        "count": 1,
+        "countIpv6": null
+      },
+      "outboundIPs": null,
+      "outboundIpPrefixes": null
+    },
+    "loadBalancerSku": "standard",
+    "natGatewayProfile": null,
+    "networkDataplane": "azure",
+    "networkMode": null,
+    "networkPlugin": "azure",
+    "networkPluginMode": "overlay",
+    "networkPolicy": "none",
+    "outboundType": "loadBalancer",
+    "podCidr": "10.244.0.0/16",
+    "podCidrs": [
+      "10.244.0.0/16"
+    ],
+    "serviceCidr": "10.0.0.0/16",
+    "serviceCidrs": [
+      "10.0.0.0/16"
+    ],
+    "staticEgressGatewayProfile": null
+  },
+  "nodeResourceGroup": "MC_chatbot-resource-group_chatbot-azure-kubernetes_eastus",
+  "nodeResourceGroupProfile": null,
+  "oidcIssuerProfile": {
+    "enabled": false,
+    "issuerUrl": null
+  },
+  "podIdentityProfile": null,
+  "powerState": {
+    "code": "Running"
+  },
+  "privateFqdn": null,
+  "privateLinkResources": null,
+  "provisioningState": "Succeeded",
+  "publicNetworkAccess": null,
+  "resourceGroup": "chatbot-resource-group",
+  "resourceUid": "686985bb0344b600015be9c6",
+  "securityProfile": {
+    "azureKeyVaultKms": null,
+    "customCaTrustCertificates": null,
+    "defender": null,
+    "imageCleaner": null,
+    "workloadIdentity": null
+  },
+  "serviceMeshProfile": null,
+  "servicePrincipalProfile": {
+    "clientId": "msi",
+    "secret": null
+  },
+  "sku": {
+    "name": "Base",
+    "tier": "Free"
+  },
+  "status": null,
+  "storageProfile": {
+    "blobCsiDriver": null,
+    "diskCsiDriver": {
+      "enabled": true
+    },
+    "fileCsiDriver": {
+      "enabled": true
+    },
+    "snapshotController": {
+      "enabled": true
+    }
+  },
+  "supportPlan": "KubernetesOfficial",
+  "systemData": null,
+  "tags": null,
+  "type": "Microsoft.ContainerService/ManagedClusters",
+  "upgradeSettings": null,
+  "windowsProfile": null,
+  "workloadAutoScalerProfile": {
+    "keda": null,
+    "verticalPodAutoscaler": null
+  }
+}

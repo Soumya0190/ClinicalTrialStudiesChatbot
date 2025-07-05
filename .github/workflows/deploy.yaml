@@ -1,0 +1,57 @@
+# 🏷️ Name of the workflow (visible in GitHub Actions UI)
+name: Deploy Chatbot to Azure Kubernetes Service (AKS)
+
+# 📦 Trigger: Run this workflow whenever there's a manual trigger via GitHub UI button, with an input parameter
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Deployment environment'
+        required: true
+        default: 'production'
+
+
+# 🌍 Global environment variables used across the job
+env:
+  GHCR_IMAGE: ghcr.io/Soumya0190/chatbot:latest         # Docker image name in GitHub Container Registry
+  CLUSTER_NAME: chatbot-azure-kubernetes                # Name of your AKS cluster in Azure
+  RESOURCE_GROUP: chatbot-resource-group                # Azure Resource Group containing the AKS cluster
+
+jobs:
+  build-and-deploy:           # 🧪 Job name (can be anything)
+    runs-on: ubuntu-latest    # 🏃 This job will run on an Ubuntu GitHub-hosted runner
+
+    steps:  # 📋 Sequence of steps to run in the job
+    - name: Checkout source
+      uses: actions/checkout@v3
+      # ✅ Pulls your repo code into the runner, required for building the Docker image
+
+    - name: Log in to GitHub Container Registry
+      run: echo "${{ secrets.GHCR_PAT }}" | docker login ghcr.io -u Soumya0190 --password-stdin
+      # 🔐 Logs Docker into GitHub Container Registry using your stored GitHub token (GHCR_PAT)
+
+    - name: Build and push Docker image
+      run: |
+        docker build -t $GHCR_IMAGE .
+        docker push $GHCR_IMAGE
+      # 🏗️ Builds the Docker image using Dockerfile and pushes it to GHCR
+
+    - name: Azure login
+      uses: azure/login@v1
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
+      # 🔐 Authenticates to Azure using the credentials you stored in the `AZURE_CREDENTIALS` secret
+
+    - name: Set AKS context
+      uses: azure/aks-set-context@v3
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
+        cluster-name: ${{ env.CLUSTER_NAME }}
+        resource-group: ${{ env.RESOURCE_GROUP }}
+      # 🔄 Configures `kubectl` to point to your AKS cluster so future commands can deploy to it
+
+    - name: Deploy to AKS
+      run: |
+        kubectl apply -f kubernetes/deployment.yaml
+        kubectl apply -f kubernetes/service.yaml
+      # 🚀 Deploys your app to AKS using Kubernetes manifest files (deployment & service definitions)

@@ -1,0 +1,34 @@
+apiVersion: apps/v1               # Specifies the API version for Deployment resources
+kind: Deployment                  # We're creating a Deployment, which manages replicas of a Pod
+
+metadata:
+  name: chatbot-deployment        # Name of the deployment
+  labels:
+    app: chatbot-app              # Labels are used for identifying and selecting resources
+
+spec:
+  replicas: 1                     # Number of Pod replicas to run (scalable for load handling)
+
+  selector:                       # Selector matches the Pods managed by this Deployment
+    matchLabels:
+      app: chatbot-app            # This label must match the one in the Pod template below
+
+  template:                       # Template for the Pods created by this Deployment
+    metadata:
+      labels:
+        app: chatbot-app          # Pod label; must match selector above
+
+    spec:
+      containers:
+      - name: chatbot-container   # Logical name for the container (can be anything)
+        image: ghcr.io/Soumya0190/chatbot:latest  # Docker image to deploy from GitHub Container Registry
+        ports:
+        - containerPort: 8501     # Internal port your Streamlit app listens on
+
+        resources:                # Optional but recommended for Kubernetes to manage load
+          requests:               # Minimum resources required for the container to start
+            memory: "512Mi"
+            cpu: "250m"
+          limits:                 # Maximum allowed resources (container is throttled beyond this)
+            memory: "1Gi"
+            cpu: "500m"
