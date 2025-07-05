@@ -13,7 +13,7 @@ on:
 
 # 🌍 Global environment variables used across the job
 env:
-  GHCR_IMAGE: ghcr.io/Soumya0190/chatbot:latest         # Docker image name in GitHub Container Registry
+  GHCR_IMAGE: ghcr.io/soumya0190/chatbot:latest         # Docker image name in GitHub Container Registry
   CLUSTER_NAME: chatbot-azure-kubernetes                # Name of your AKS cluster in Azure
   RESOURCE_GROUP: chatbot-resource-group                # Azure Resource Group containing the AKS cluster
 
